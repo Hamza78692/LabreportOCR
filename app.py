@@ -40,7 +40,7 @@ def main():
         extracted_region = cv.bitwise_and(image, image, mask=mask)
 
         # Use EasyOCR to find text within the largest contour
-        reader = easyocr.Reader(['en'])
+        reader = easyocr.Reader(['en'], gpu = True)
         result = reader.readtext(extracted_region, detail=0)
 
         # Organize results into rows
